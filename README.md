@@ -1,7 +1,7 @@
 
-# MailMind (Mail Organizer)
+# Mail Organizer
 
-MailMind (renamed to "Mail Organizer" in the Android build) is a Flutter-based email assistant prototype that syncs Gmail messages, detects deadlines and reminders in email text, classifies priorities with a TFLite model, and stores metadata locally with Hive.
+Mail Organizer is a Flutter-based email assistant prototype that syncs Gmail messages, detects deadlines and reminders in email text, classifies priorities with a TFLite model, and stores metadata locally with Hive.
 
 **What we changed / implemented**
 - **App label**: Set Android application label to "Mail Organizer" (`android/app/src/main/AndroidManifest.xml`).
@@ -81,17 +81,4 @@ adb install -r build\app\outputs\flutter-apk\app-release.apk
 - Hive boxes must be initialized before reading/writing. The app ensures `EmailLocalStorage.init()` runs during startup.
 - If icons look blurry or incorrect, regenerate properly sized PNGs with `flutter_launcher_icons` or provide a high-resolution PNG and re-run the generator.
 - A previous attempt to change APK filename used a Gradle snippet incompatible with Kotlin DSL and was removed; default APK filenames are used now. You can rename build outputs in CI or via a separate packaging script.
-
-## How to contribute / extend
-- Add more robust NLP for deadline detection (SpaCy / server-side models) or integrate ML-based NER for date extraction.
-- Improve reminder scheduling and local notifications (use `flutter_local_notifications`).
-- Add IMAP fallback for non-Gmail accounts.
-
-If you want, I can also:
-- Re-run `flutter build apk` and upload the produced APK to a specific path.
-- Add CI steps to automatically build and create named artifacts.
-
----
-
-If anything here is unclear or you want the README to include screenshots or sample logs, tell me which items to add and I'll update it.
 
